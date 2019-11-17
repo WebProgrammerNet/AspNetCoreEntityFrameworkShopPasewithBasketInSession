@@ -1,0 +1,55 @@
+﻿@model CarsViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.currentCategory</h2>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                @foreach (var item in Model.allCars)
+                {
+
+                    @await Html.PartialAsync("~/Views/Shared/_PartialAllCars.cshtml", item);
+
+                }
+                
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+@*<div class="col-md-3" style="margin-left:2rem; margin-right:2rem">
+
+        <img src="~/img/@item.Img" class="card-img-top" alt="...">
+        <div>
+            @{
+                if (item.IsFavorite == true)
+                {
+                    <h5>I am Favorite</h5>
+                }
+
+            }
+            @{
+                if (item.aviable == true)
+                {
+                    <h5>I Am Aviable</h5>
+                }
+
+            }
+
+            <h5 class="card-title">@item.Category.CategoryName</h5>
+            <h5 class="card-title">@item.Name : @item.Price</h5>
+            <h5 class="card-title">@item.ShortDesc</h5>
+            <p class="card-text">@item.longDesc</p>
+
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>*@

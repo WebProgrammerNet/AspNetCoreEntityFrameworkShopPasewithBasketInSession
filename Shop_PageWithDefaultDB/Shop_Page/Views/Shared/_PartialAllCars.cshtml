@@ -1,0 +1,34 @@
+﻿@model Car
+
+<div class="col-md-3" style="margin-left:2rem; margin-right:2rem; display:inline-block">
+
+    <img src="~/img/@Model.Img" class="card-img-top" alt="...">
+    <div>
+        @{
+            if (Model.IsFavorite == true)
+            {
+                <h5>I am Favorite</h5>
+            }
+
+        }
+        @{
+            if (Model.aviable == true)
+            {
+                <h5>I Am Aviable</h5>
+            }
+
+        }
+
+        <h5 class="card-title">@Model.Category.CategoryName</h5>
+        <h5 class="card-title">@Model.Name : @Model.Price</h5>
+        <h5 class="card-title">@Model.ShortDesc</h5>
+        <p class="card-text">@Model.longDesc</p>
+
+        <a class="btn btn-danger" asp-controller="ShopCart" asp-action="addCart" asp-route-id="@Model.Id">Add To Card </a>
+    </div>
+</div>
+
+
+
+
+

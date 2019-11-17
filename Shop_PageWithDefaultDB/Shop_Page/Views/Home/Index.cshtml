@@ -1,0 +1,51 @@
+﻿@model HomeViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Home Index</h2>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                @foreach (var item in Model.favCars)
+                {
+                    <div class="col-md-3" style="margin-left:2rem; margin-right:2rem; display:inline-block">
+
+                        <img src="~/img/@item.Img" class="card-img-top" alt="...">
+                        <div>
+
+
+                            <h5>I am Favorite</h5>
+
+
+
+                            @{
+                                if (item.aviable == true)
+                                {
+                                    <h5>I Am Aviable</h5>
+                                }
+
+                            }
+
+                            <h5 class="card-title">@item.Category.CategoryName</h5>
+                            <h5 class="card-title">@item.Name : @item.Price</h5>
+                            <h5 class="card-title">@item.ShortDesc</h5>
+                            <p class="card-text">@item.longDesc</p>
+
+                            <a class="btn btn-danger" asp-controller="Order">Go To Order </a>
+                            <a class="btn btn-danger" asp-controller="ShopCart" asp-action="addCart" asp-route-id="@item.Id">Add To Card </a>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+

@@ -1,0 +1,34 @@
+﻿@model ShopCartViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+        @foreach (var item in Model.shopCart.Listshopcartitems)
+        {
+            <div class="col-md-3" style="margin-left:2rem; margin-right:2rem; display:inline-block">
+
+                <img src="~/img/@item.car.Img" class="card-img-top" alt="...">
+                <div>
+                    <h5 class="card-title">@item.car.Name : @item.car.Price.ToString("c")</h5>
+                    <h5 class="card-title">@item.car.ShortDesc</h5>
+                    <p class="card-text">@item.car.longDesc</p>
+
+
+                </div>
+            </div>
+         }
+       
+
+    </div>
+    <div class="d-flex justify-content-center">
+        <a class="btn btn-danger" asp-controller="Order" asp-action="Checkout">Go To Order </a>
+    </div>
+</div>
+</div>
+
+
